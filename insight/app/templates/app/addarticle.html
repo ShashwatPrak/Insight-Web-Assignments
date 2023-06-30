@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static '/css/addarticle.css' %}" >
+<br>
+<br>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="card card-body">
+            <h2>Add Article :</h2>
+            <br>
+        <form method="POST" >
+            {% csrf_token %}
+            {{form.as_p}}
+            <br>
+            <input type = "submit" class="btn btn-primary btn-sm btn-block" value="SAVE">
+        </form>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+{% endblock content %}

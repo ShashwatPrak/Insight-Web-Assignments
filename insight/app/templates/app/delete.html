@@ -1,0 +1,26 @@
+{%extends 'main.html'%}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static '/css/delete.css' %}" >
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center">
+        <div class="card card-body">
+        <form method="POST">
+            {% csrf_token %}
+            <h8>Are you sure you want to delete article '<a href="{% url 'update' article.id %}">{{article.title}}</a>' ?</h8>
+            <br>
+            <br>
+            
+            <a class="btn btn-primary btn-sm btn-block" href = "{{request.META.HTTP_REFERER}}">Cancel</a>
+            <input type="submit" class="btn btn-danger btn-sm btn-block" value = "Confirm" >
+        </form>
+        </div>
+    </div>
+    <div class="col-md-5"></div>
+</div>
+
+{% endblock content %}
